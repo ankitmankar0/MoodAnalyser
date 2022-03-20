@@ -1,34 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MoodAnalyserProblem
 {
     public class MoodAnalyser
     {
-        public string AnalyseMood(string moodMessage)
+        string message;
+        public MoodAnalyser(string message)
+        {
+            this.message = message;
+        }
+
+        public string AnalyzeMood()
         {
             try
             {
-                if (moodMessage == null)
+
+                if (message.ToLower().Contains("happy"))
                 {
-                    throw new NullReferenceException();
-                }
-                if (moodMessage.ToLower().Contains("sad"))
-                {
-                    return "SAD";
+                    return "happy";
                 }
                 else
                 {
-                    return "HAPPY";
+                    return "sad";
                 }
-
             }
-            catch (NullReferenceException ex)
+            catch (NullReferenceException)
             {
-                return "HAPPY";
-            }
+                return "happy";
 
+            }
         }
     }
 }

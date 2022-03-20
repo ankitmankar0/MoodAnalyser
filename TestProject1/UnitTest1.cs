@@ -1,53 +1,34 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MoodAnalyserProblem;
 
-namespace MoodAnalyserProblem
+namespace TestProject1
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void GivenMood_WhenSad_ShouldReturn_SAD_MOOD()
+        //MoodAnalyser moodAnalyser;
+        //string message = " I am in happy Mood";
+        [TestInitialize]
+        public void SetUp()
         {
-            //Arrange
-            string moodMessage = "I am in Sad Mood";
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string expected = "SAD";
+            //moodAnalyser = new MoodAnalyser(message);
+        }
+        [TestMethod]
+        public void TestMethodForHappyMood()
 
-            //Act
-            string actual = moodAnalyser.AnalyseMood(moodMessage);
-
-            //Assert
+        {
+            string expected = "happy";
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in happy Mood");
+            string actual = moodAnalyser.AnalyzeMood();
             Assert.AreEqual(expected, actual);
         }
-
         [TestMethod]
-        public void GivenMood_WhenHappy_ShouldReturn_HAPPY_MOOD()
+        public void TestMethodForSadMood()
+
         {
-            //Arrange
-            string moodMessage = "I am in Any Mood";
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string expected = "HAPPY";
-
-            //Act
-            string actual = moodAnalyser.AnalyseMood(moodMessage);
-
-            //Assert
-            Assert.AreEqual(expected, actual);
-        }
-
-        [TestMethod]
-        public void GivenMood_WhenNull_ShouldReturn_HAPPY_MOOD()
-        {
-            //Arrange
-            string moodMessage = null;
-            MoodAnalyser moodAnalyser = new MoodAnalyser();
-            string expected = "HAPPY";
-
-            //Act
-            string actual = moodAnalyser.AnalyseMood(moodMessage);
-
-            //Assert
+            string expected = "sad";
+            MoodAnalyser moodAnalyser = new MoodAnalyser("I am in sad Mood");
+            string actual = moodAnalyser.AnalyzeMood();
             Assert.AreEqual(expected, actual);
         }
     }
